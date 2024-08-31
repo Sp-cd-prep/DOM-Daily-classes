@@ -206,7 +206,7 @@
 //    pro()
 
 
-// Promise chaining
+// Promise chaining:
 
 // function pro(num){
 //     return new Promise((res, rej) => {
@@ -307,7 +307,127 @@
 // printNum()
 
 
+// JSON
 
+// It is often used to transmit data between a server and a web application.
+
+// fetch
+
+// the fetch function used to make a network Request. It takes a URL as its argument and returns a Promsie that resolves to the response Object.
+
+
+// fetch('https://jsonplaceholder.typicode.com/todos/1')
+
+    //   .then(response => console.log(response)) //used to handel the resolves value of promise
+
+    //   output
+
+    // Response {type: 'cors', url: 'https://jsonplaceholder.typicode.com/users', redirected: false, status: 200, ok: true, …}
+    // body: (...)
+    // bodyUsed:false
+    // headers: 
+    // Headers {}
+    // ok: true
+    // redirected: false
+    // status: 200
+    // statusText: ""
+    // type: "cors"
+    // url: "https://jsonplaceholder.typicode.com/users"
+//    }
+
+    //   .then(response=>console.log(response.json()))// it is a method of response object that reads the response and returns a promise. It basically parse the JSON data from the response and return it
+
+    //   output
+
+// Promise {<pending>}
+// [[Prototype]]: Promise
+// [[PromiseState]]: "fulfilled"
+// [[PromiseResult]]: Array(10)
+
+
+        // .then(data=>console.log(data)) this method is chained to handel the promise which is returned by response.json()
+
+
+
+        async function getData(){
+
+            try{
+              const res = await fetch('https://jsonplaceholder.typicode.com/users')
+              const data  = await res.json()
+            
+                const tbody = document.getElementById("user");
+                  data.forEach((user)=>{
+          
+                    const tr = document.createElement("tr");
+                    const td1 = document.createElement("td")
+                    const td2 = document.createElement("td")
+          
+                    td1.textContent = user.name;
+                    td2.textContent = user.email;
+          
+                    tbody.appendChild(tr);
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+          
+                  })
+                }
+                catch(error){
+                  console.error(error,"api error")
+                }
+                }
+          
+              getData()
+          
+
+
+
+// Prototype              
+
+// are the mechanism by which javascript object inherit features from one another.
+// Every object in javascript has a built-in property which is called its prototype.
+
+// The js prototype allows you to add new properties to object constructor/function constructor. 
+
+// Prototype is itself an object. So the prototype will have its own prototype. Now it will make prototype chaining. 
+
+
+
+// function Person(name, age) {
+//     this.name = name;
+//         this.age = age;
+// }
+
+// Person.prototype.grade = "A+"
+// const person1 = new Person("Alice", 25);
+
+
+// console.log(person1.name,person1.age,person1.grade); 
+
+
+
+// __proto__
+
+
+// function Car(name,model){
+//     this.name= name;
+//     this.model = model;
+//   }
+
+//   //prototype syntax 
+//   // Car.__proto__.owner = "Jhon"
+//   const carModel = new Car("Audi","220d");
+
+//   //__proto__ syntax
+//   // carModel.prototype.owner = "Jhon";
+//   console.log(carModel.owner + " is the owner of "+carModel.name);
+//   console.log(carModel);
+
+
+
+
+// Cookies
+// cookies are small pieces of data stroed on the clients computer by the web server 
+// cookies can store upto 4KB of data
 
 
 
