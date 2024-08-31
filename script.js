@@ -349,34 +349,34 @@
 
 
 
-        async function getData(){
+        // async function getData(){
 
-            try{
-              const res = await fetch('https://jsonplaceholder.typicode.com/users')
-              const data  = await res.json()
+        //     try{
+        //       const res = await fetch('https://jsonplaceholder.typicode.com/users')
+        //       const data  = await res.json()
             
-                const tbody = document.getElementById("user");
-                  data.forEach((user)=>{
+        //         const tbody = document.getElementById("user");
+        //           data.forEach((user)=>{
           
-                    const tr = document.createElement("tr");
-                    const td1 = document.createElement("td")
-                    const td2 = document.createElement("td")
+        //             const tr = document.createElement("tr");
+        //             const td1 = document.createElement("td")
+        //             const td2 = document.createElement("td")
           
-                    td1.textContent = user.name;
-                    td2.textContent = user.email;
+        //             td1.textContent = user.name;
+        //             td2.textContent = user.email;
           
-                    tbody.appendChild(tr);
-                    tr.appendChild(td1);
-                    tr.appendChild(td2);
+        //             tbody.appendChild(tr);
+        //             tr.appendChild(td1);
+        //             tr.appendChild(td2);
           
-                  })
-                }
-                catch(error){
-                  console.error(error,"api error")
-                }
-                }
+        //           })
+        //         }
+        //         catch(error){
+        //           console.error(error,"api error")
+        //         }
+        //         }
           
-              getData()
+        //       getData()
           
 
 
@@ -431,6 +431,56 @@
 
 
 
+// Q. Fetch api and render it in a list 
 
+//html
+{/* <ul id="list">
+
+</ul> */}
+
+
+// fetch('https://jsonplaceholder.typicode.com/users')
+// .then((response)=>response.json())
+// .then(data=>{
+
+//     let ul = document.getElementById("list");
+
+//     data.forEach((user)=>{
+//       let li = document.createElement("li");
+//       li.textContent = user.name
+//       ul.appendChild(li);
+
+//     })
+
+// })
+
+
+// Q.  fetch api and render it in table format
+
+
+fetch('https://jsonplaceholder.typicode.com/users')
+.then((response)=>response.json())
+.then(data=>{
+
+     const tbody = document.getElementById("tbody");
+    data.forEach((user)=>{
+
+      const tr = document.createElement("tr");
+      const td1 = document.createElement("td")
+      const td2 = document.createElement("td")
+
+      td1.textContent = user.name;
+      td2.textContent = user.email;
+
+      tbody.appendChild(tr);
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+
+    })
+
+})
+
+
+ 
 
 

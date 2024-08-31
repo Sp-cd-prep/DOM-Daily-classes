@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="user" />
+    <button id="btn">Button</button>
+    <p id="result"></p>
 
-  <input type="text" id="user">
-  <button id="btn">Button</button>
-  <p id="result"></p>
+    <!-- <ul id="list">
 
-  <script>
+  </ul> -->
 
-const button = document.getElementById("btn");
-const userInput = document.getElementById("user");
-const result  = document.getElementById("result");
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
 
+      <tbody id="tbody">
+        
+      </tbody>
+    </table>
 
-
-
-button.addEventListener("click", function(){
-  const inputValue =  userInput.value;
-  
-  localStorage.setItem("name",inputValue)
-  const res = localStorage.getItem("name");
-  console.log(res)
-  
-  result.innerText= inputValue ;
-  userInput.value = "";
-})
-
-  </script>
-  
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
